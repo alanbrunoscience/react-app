@@ -37,4 +37,4 @@ jobs:
 
       - name: Deploy to Staging
         if: github.event_name == "push"
-        run: npx surge --project ./build --domain silent-apparatus.surge.sh 
+        run: npx surge --project ./build --domain silent-apparatus.surge.sh
