@@ -34,6 +34,7 @@ jobs:
   deploy-app:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    needs: ["build"]
     steps:
       - name: Build Project
         # if: github.event_name == 'push'
