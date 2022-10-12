@@ -34,16 +34,16 @@ jobs:
       - name: Check Code Formatting
         run: npm run format:check
 
-      - name: Upload Test Coverage
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: code-coverage
-          path: ./coverage
-
       - name: Run Automated Tests
         run: npm test -- --coverage
         env:
           CI: true
+
+      - name: Upload Test Coverage
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: code-coverage
+          path: coverage
 
       - name: Build Project
         if: github.event_name == 'push'
@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with:
           name: build
-          path: ./build
+          path: build
 
       - name: Deploy to Staging
         if: github.event_name == 'push'
